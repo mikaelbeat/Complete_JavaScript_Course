@@ -1,3 +1,25 @@
+
+var johnHeight, johnMass;
+johnHeight = 1.60;
+johnMass = 80;
+johnBMI = (johnMass / (johnHeight * johnHeight));
+console.log('John BMI is ' + johnBMI);
+
+var markHeight, markMass;
+markHeight = 1.90;
+markMass = 55;
+markBMI = (markMass / (markHeight * markHeight));
+console.log('Mark BMI is ' + markBMI);
+
+var compareBMI = johnBMI <= markBMI;
+
+if(compareBMI == true){
+	console.log('Mark\'s BMI is higher.');
+}else{
+	console.log('John\'s BMI is higher.');
+}
+
+
 /*
 var firstName = 'John';
 var age = 28;
@@ -44,7 +66,7 @@ console.log(year + 2);
 var johnOlder = ageJohn > ageMark;
 console.log(johnOlder);
 console.log(typeof johnOlder);
-*/
+
 
 var now = 2018;
 var yearJohn = 1981;
@@ -57,3 +79,4 @@ var ageJohn = now - yearJohn;
 var ageMark = 35;
 var average = ageJohn + ageMark / 2;
 console.log(average);
+*/
