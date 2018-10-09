@@ -1,3 +1,133 @@
+// amount * percentage
+// 200 * 0.75 = 150
+
+var bill1 = 124;
+var bill2 = 48;
+var bill3 = 268;
+
+var tips =[];
+var billsWithTip = [];
+
+function tipCalculator(bill){
+	tipPercentage = 0;
+	fullBill = 0;
+	tipAmount = 0;
+	
+	if(bill < 50){
+		tipPercentage = 0.2;
+	}else if(bill >= 50 && bill <= 200){
+		tipPercentage = 0.15;
+	}else{
+		tipPercentage = 0.1;
+	}
+	console.log('For bill amount ' + bill + '€ tip percentage is ' + tipPercentage + '%.');
+	tips.push(bill);
+	tipAmount = bill * tipPercentage;
+	fullBill = bill + tipAmount;
+	billsWithTip.push(fullBill);
+	return tipAmount;
+}
+
+var tipAmount = tipCalculator(bill1);
+console.log('In the first restaurant where bill was ' + bill1 +
+		'€, tip amount is ' + tipAmount + '€.');
+
+var tipAmount = tipCalculator(bill2);
+console.log('In the second restaurant where bill was ' + bill2 +
+		'€, tip amount is ' + tipAmount + '€.');
+
+var tipAmount = tipCalculator(bill3);
+console.log('In the third restaurant where bill was ' + bill3 +
+		'€, tip amount is ' + tipAmount + '€.');
+
+console.log('Given tips ' + tips);
+console.log('Bills with tips are ' + billsWithTip);
+
+
+/*
+var names = ['John', 'Mark', 'Jane'];
+var years = new Array(1990, 1969, 1948);
+
+console.log(names.length);
+console.log(years);
+
+var john = ['John', 'Smith', 1990, 'designer', false];
+john.push('Blue');
+john.unshift('Mr.');
+console.log(john);
+
+john.pop();
+console.log(john);
+
+john.shift();
+console.log(john);
+
+console.log(john.indexOf(1990));
+
+console.log(john.indexOf('designer') === -1 ? 'John is NOT a designer' : 'John IS a designer');
+
+function calculateAge(birthYear){
+	return 2018 - birthYear
+}
+
+var ageJohn = calculateAge(1981);
+console.log(ageJohn);
+
+var whatDoYouDo = function(job, firstName){
+	switch (job) {
+	case 'teacher':
+		return firstName + ' teaches kids how to code.';
+	case 'driver':
+		return firstName + ' drives a cab in Lisbon.';
+	case 'designer':
+		return firstName + ' designs web pages.';
+	default:
+		return firtName + ' does something else.';
+	}
+}
+
+console.log(whatDoYouDo('driver', 'Ben'));
+
+var johnsTeam, mikesTeam, marysTeam;
+var johnsTeamMatch1, johnsTeamMatch2, johnsTeamMatch3, johnsTeamMatches;
+var mikesTeamMatch1, mikesTeamMatch2, mikesTeamMatch3, mikesTeamMatches;
+var marysTeamMatch1, marysTeamMatch2, marysTeamMatch3, marysTeamMatches;
+var johnsTeamAverage, mikesTeamAverage, marysTeamAverage;
+
+johnsTeamMatches = 3;
+johnsTeamMatch1 = 11;
+johnsTeamMatch2 = 10;
+johnsTeamMatch3 = 10;
+johnsTeamAverage = johnsTeamMatch1 + johnsTeamMatch2 + johnsTeamMatch3 / johnsTeamMatches;
+
+mikesTeamMatches = 3;
+mikesTeamMatch1 = 10;
+mikesTeamMatch2 = 10;
+mikesTeamMatch3 = 10;
+mikesTeamAverage = mikesTeamMatch1 + mikesTeamMatch2 + mikesTeamMatch3 / mikesTeamMatches;
+
+marysTeamMatches = 3;
+marysTeamMatch1 = 10;
+marysTeamMatch2 = 10;
+marysTeamMatch3 = 10;
+marysTeamAverage = marysTeamMatch1 + marysTeamMatch2 + marysTeamMatch3 / marysTeamMatches;
+
+
+if(johnsTeamAverage > mikesTeamAverage && johnsTeamAverage > marysTeamAverage){
+	console.log('John\'s team has higher score average ' + 
+			johnsTeamAverage + ', Mike\'s team has average ' + mikesTeamAverage +
+			', Mary\'s team has average ' + marysTeamAverage);
+}else if(mikesTeamAverage > johnsTeamAverage && mikesTeamAverage > marysTeamAverage){
+	console.log('Mikes\'s team has higher score average ' + 
+			mikesTeamAverage + ', John\'s team has average ' + johnsTeamAverage +
+			', Mary\'s team has average ' + marysTeamAverage);
+}else if(marysTeamAverage > johnsTeamAverage && marysTeamAverage > mikesTeamAverage){
+	console.log('Mary\'s team has higher score average ' + 
+			marysTeamAverage + ', John\'s team has average ' + johnsTeamAverage +
+			', Mike\'s team has average ' + mikesTeamAverage);
+}else{
+	console.log('It is a draw.');
+}
 
 var johnHeight, johnMass;
 johnHeight = 1.60;
@@ -20,7 +150,7 @@ if(compareBMI == true){
 }
 
 
-/*
+
 var firstName = 'John';
 var age = 28;
 
