@@ -1,3 +1,170 @@
+//
+//var bills = [124,48,268,180,42];
+//
+//var tips =[];
+//var finalBill = [];
+//
+//for(var i = 0; i < bills.length; i++){
+//	tipCalculator(bills[i], i+1);
+//}
+//
+//
+//
+//function tipCalculator(bill, restaurantNro){
+//	
+//	var tipPercantage;
+//	var tipAmount;
+//	var fullBill;
+//	
+//	if(bill < 50){
+//		tipPercantage = 0.2;
+//	}else if(bill >= 50 && bill <= 200){
+//		tipPercantage = 0.15;
+//	}else{
+//		tipPercantage = 0.1;
+//	}
+//	
+//	tipAmount = bill * tipPercantage;
+//	tips.push(tipAmount);
+//	fullBill = tipAmount + bill;
+//	finalBill.push(fullBill);
+//	console.log('In restaurant number ' + restaurantNro + ' bill was ' + bill +
+//				'€ and tip was ' + tipAmount + '€. Final bill was ' + fullBill + '€.');
+//	console.log('Given tips were ' + tips);
+//	console.log('Final bills from restaurants were ' + finalBill);
+//}
+
+
+console.log('\n********************************************************');
+	
+
+	
+var mark ={
+		bills: [77,375,110,45],
+		tips: [],
+		finalBills: [],
+		tipPercentage: 0,
+		tipAmount: 0,
+		calculateTip: function(){
+			
+			for(var i = 0; i < this.bills.length; i++){
+				if(i < 100){
+					this.tipPercantage = 0.2;
+				}else if(i >= 100 && i <= 300){
+					this.tipPercantage = 0.1;
+				}else{
+					this.tipPercantage = 0.25;
+				}
+				this.tipAmount = this.bills * this.tipPercantage;
+			}
+				
+		}
+}
+
+console.log(mark.calculateTip());
+	
+
+
+console.log('\n********************************************************');
+
+/*
+
+console.log(john.calcAge());
+john.calcAge();
+console.log(john);
+
+var mark = {
+		firstName: 'Mark',
+		lastName: 'Taylor',
+		height: 1.6,
+		weight: 100,
+		calcBMI: function(){
+			this.BMI = this.weight / (this.height * this.height)
+			return this.BMI;
+		}
+};
+
+if(john.calcBMI() > mark.calcBMI()){
+	console.log('John BMI is ' + john.BMI + 
+				' which is bigger than Marks BMI ' + mark.BMI + '.');
+}else if(john.BMI  < mark.BMI){
+	console.log('Mark BMI is ' + mark.BMI +
+				' which is bigger than Johns BMI ' + john.BMI  + '.')
+}else{
+	console.log('John and Mark has same BMI.');
+}
+
+
+
+function tipCalculator(bill){
+	tipPercentage = 0;
+	fullBill = 0;
+	tipAmount = 0;
+	
+	if(bill < 50){
+		tipPercentage = 0.2;
+	}else if(bill >= 50 && bill <= 200){
+		tipPercentage = 0.15;
+	}else{
+		tipPercentage = 0.1;
+	}
+	console.log('For bill amount ' + bill + '€ tip percentage is ' + tipPercentage + '%.');
+	tipAmount = bill * tipPercentage;
+	tips.push(tipAmount);
+	fullBill = bill + tipAmount;
+	billsWithTip.push(fullBill);
+	return tipAmount;
+}
+
+var tipAmount = tipCalculator(bill1);
+console.log('In the first restaurant where bill was ' + bill1 +
+		'€, tip amount is ' + tipAmount + '€.');
+
+var tipAmount = tipCalculator(bill2);
+console.log('In the second restaurant where bill was ' + bill2 +
+		'€, tip amount is ' + tipAmount + '€.');
+
+var tipAmount = tipCalculator(bill3);
+console.log('In the third restaurant where bill was ' + bill3 +
+		'€, tip amount is ' + tipAmount + '€.');
+
+console.log('Given tips ' + tips);
+console.log('Bills with tips are ' + billsWithTip);
+
+/*
+var john = ['John', 'Smith', 1990, 'Idaho'];
+
+for (var i = john.length -1; i >= 0; i--){
+	console.log(john[i]);
+}
+
+
+
+
+for(var i = 0; i < john.length; i++){
+	if(typeof john[i] !== 'string') continue;
+	console.log(john[i]);
+}
+
+
+for(var i = 0; i < john.length; i++){
+	if(typeof john[i] !== 'string') break;
+	console.log(john[i]);
+}
+
+
+
+var i = 0;
+while(i < john.lenght){
+	console.log([i]);
+	i++;
+}
+
+
+for(var i = 0; i < john.length; i++ ){
+	console.log(john[i]);
+}
+
 
 var john = {
 		firstName: 'John',
@@ -31,10 +198,6 @@ if(john.calcBMI() > mark.calcBMI()){
 }
 
 
-
-
-
-/*
 var johnHeight, johnMass;
 johnHeight = 1.60;
 johnMass = 80;
