@@ -1,5 +1,107 @@
-// amount * percentage
-// 200 * 0.75 = 150
+
+var john = {
+		firstName: 'John',
+		lastName: 'Smith',
+		height: 1.6,
+		weight: 100,
+		calcBMI: function(){
+			this.BMI = this.weight / (this.height * this.height)
+		}
+};
+
+var mark = {
+		firstName: 'Mark',
+		lastName: 'Taylor',
+		height: 1.6,
+		weight: 100,
+		calcBMI: function(){
+			this.BMI = this.weight / (this.height * this.height)
+			return this.BMI;
+		}
+};
+
+if(john.calcBMI() > mark.calcBMI()){
+	console.log('John BMI is ' + john.BMI + 
+				' which is bigger than Marks BMI ' + mark.BMI + '.');
+}else if(john.BMI  < mark.BMI){
+	console.log('Mark BMI is ' + mark.BMI +
+				' which is bigger than Johns BMI ' + john.BMI  + '.')
+}else{
+	console.log('John and Mark has same BMI.');
+}
+
+
+
+
+
+/*
+var johnHeight, johnMass;
+johnHeight = 1.60;
+johnMass = 80;
+johnBMI = (johnMass / (johnHeight * johnHeight));
+console.log('John BMI is ' + johnBMI);
+
+var markHeight, markMass;
+markHeight = 1.90;
+markMass = 55;
+markBMI = (markMass / (markHeight * markHeight));
+console.log('Mark BMI is ' + markBMI);
+
+var compareBMI = johnBMI <= markBMI;
+
+if(compareBMI == true){
+	console.log('Mark\'s BMI is higher.');
+}else{
+	console.log('John\'s BMI is higher.');
+}
+
+
+
+var john = {
+		firstName: 'John',
+		lastName: 'Smith',
+		birthYear: 1990,
+		family: ['Jane', 'Mark', 'Bob', 'Emily'],
+		job: 'Teacher',
+		isMarried: false,
+		calcAge: function(){
+			this.age = 2018 - this.birthYear
+		}
+};
+
+console.log(john.calcAge());
+john.calcAge();
+console.log(john);
+
+
+
+var john = {
+		firstName: 'John',
+		lastName: 'Smith',
+		birthYear: 1990,
+		family: ['Jane', 'Mark', 'Bob', 'Emily'],
+		job: 'Teacher',
+		isMarried: false
+};
+
+console.log(john.job);
+console.log(john['lastname']);
+var x = 'birthYear';
+console.log(john[x]);
+
+john.job = 'designer';
+john['isMarried'] = true;
+console.log(john);
+
+
+var jane = new Object();
+jane.firstName = 'Jane';
+jane.birthYear = 1969;
+jane['lastName'] = 'Smith';
+console.log(jane);
+
+
+
 
 var bill1 = 124;
 var bill2 = 48;
@@ -21,8 +123,8 @@ function tipCalculator(bill){
 		tipPercentage = 0.1;
 	}
 	console.log('For bill amount ' + bill + '€ tip percentage is ' + tipPercentage + '%.');
-	tips.push(bill);
 	tipAmount = bill * tipPercentage;
+	tips.push(tipAmount);
 	fullBill = bill + tipAmount;
 	billsWithTip.push(fullBill);
 	return tipAmount;
@@ -44,7 +146,7 @@ console.log('Given tips ' + tips);
 console.log('Bills with tips are ' + billsWithTip);
 
 
-/*
+
 var names = ['John', 'Mark', 'Jane'];
 var years = new Array(1990, 1969, 1948);
 
