@@ -42,6 +42,7 @@ console.log('\n********************************************************');
 var mark ={
 		fullName: 'Mark Miller',
 		bills: [124, 48, 268, 180, 42],
+		
 		calcTips: function(){
 			this.tips = [];
 			this.finalValues = [];
@@ -65,8 +66,17 @@ var mark ={
 		}
 }
 
+function calcAverage(tips){
+	var sum = 0;
+	for(var i = 0; i < tips.length; i++){
+		sum = sum + tips[i];
+	}
+	return sum / tips.length;
+}
+
 mark.calcTips();
 console.log(mark);
+console.log('Avarage from Marks tips is: ' + calcAverage(mark.tips) + '.');
 	
 
 
