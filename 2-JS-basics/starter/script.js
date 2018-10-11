@@ -40,34 +40,45 @@ console.log('\n********************************************************');
 
 	
 var mark ={
-		bills: [77,375,110,45],
-		tips: [],
-		finalBills: [],
-		tipPercentage: 0,
-		tipAmount: 0,
-		calculateTip: function(){
+		fullName: 'Mark Miller',
+		bills: [124, 48, 268, 180, 42],
+		calcTips: function(){
+			this.tips = [];
+			this.finalValues = [];
 			
-			for(var i = 0; i < this.bills.length; i++){
-				if(i < 100){
-					this.tipPercantage = 0.2;
-				}else if(i >= 100 && i <= 300){
-					this.tipPercantage = 0.1;
-				}else{
-					this.tipPercantage = 0.25;
-				}
-				this.tipAmount = this.bills * this.tipPercantage;
-			}
+			for (var i = 0; i < this.bills.length; i++){
 				
+				var percentage;
+				var bill = this.bills[i];
+				
+				if(bill < 50){
+					percentage = .2;
+				}else if(bill >= 50 && bill < 200){
+					percentage = .15;
+				}else{
+					percentage = .1;
+				}
+				
+				this.tips[i] = bill * percentage;
+				this.finalValues[i] = bill + bill * percentage;
+			}
 		}
 }
 
-console.log(mark.calculateTip());
+mark.calcTips();
+console.log(mark);
 	
 
 
 console.log('\n********************************************************');
 
 /*
+
+				this.tipAmount = this.bills * this.tipPercantage;
+				this.
+			}
+				
+		}
 
 console.log(john.calcAge());
 john.calcAge();
