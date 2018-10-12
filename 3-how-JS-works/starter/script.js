@@ -2,15 +2,28 @@
 // Lecture: Hoisting
 
 
+/*
+
+function calculateAge(year){
+	console.log(2018 - year);
+}
+
+calculateAge(1999);
 
 
 
+var retirement = function(year){
+	console.log(65 - (2018 - year));
+}
+
+retirement(1990);
 
 
 
+var age = 23;
+console.log(age);
 
-
-
+/*
 
 
 
@@ -66,6 +79,47 @@ function third() {
 
 ///////////////////////////////////////
 // Lecture: The this keyword
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
