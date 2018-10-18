@@ -59,9 +59,9 @@ function nextPlayer(){
 
 //		if(activePlayer == 0){
 //		activePlayer = 1;
-//	}else{
+//		}else{
 //		activePlayer = 0;
-//	}
+//		}
 
 	roundScore = 0;
 
