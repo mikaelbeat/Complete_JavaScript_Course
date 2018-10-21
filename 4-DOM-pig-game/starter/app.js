@@ -19,22 +19,26 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
 	
 	if(gamePlaying){
 //	var dice = Math.floor(Math.random() * 6) + 1;
-	var dice = 6;
+var dice = 6;
 	var diceDOM = document.querySelector('.dice');
 	diceDOM.style.display = 'block';
 	diceDOM.src = 'dice-' + dice + '.png';
-	
+	console.log('Dice is: ' + dice);
 	if(dice !== 1){
-		currentRoll = dice;
-		roundScore += dice;
-		document.querySelector('#current-' + activePlayer).textContent = roundScore;
-		previousRoll = currentRoll;
-			if(previousRoll == currentRoll){
-				nextPlayer();
-			}else{
-				nextPlayer();
-			}
+		console.log('Current roll: ' + dice);
+		console.log('Previous roll: ' + previousRoll)
+		if((dice == 6) && (previousRoll == 6)){
+			console.log('First else');
+			nextPlayer();
+		}else{
+			roundScore += dice;
+			document.querySelector('#current-' + activePlayer).textContent = roundScore;
+			previousRoll = dice;
+			console.log('Old roll: ' + previousRoll)
+		}
+
 	}else{
+		console.log('Second else');
 		nextPlayer();
 	}
 	}
