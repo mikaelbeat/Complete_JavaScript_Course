@@ -11,19 +11,29 @@ GAME RULES:
 
 var scores, roundScore, activePlayer, gamePlaying = true;
 
+var previousRoll, currentRoll;
+
 startNewGame();
 
 document.querySelector('.btn-roll').addEventListener('click', function(){
 	
 	if(gamePlaying){
-	var dice = Math.floor(Math.random() * 6) + 1;
+//	var dice = Math.floor(Math.random() * 6) + 1;
+	var dice = 6;
 	var diceDOM = document.querySelector('.dice');
 	diceDOM.style.display = 'block';
 	diceDOM.src = 'dice-' + dice + '.png';
 	
 	if(dice !== 1){
+		currentRoll = dice;
 		roundScore += dice;
 		document.querySelector('#current-' + activePlayer).textContent = roundScore;
+		previousRoll = currentRoll;
+			if(previousRoll == currentRoll){
+				nextPlayer();
+			}else{
+				nextPlayer();
+			}
 	}else{
 		nextPlayer();
 	}
