@@ -18,27 +18,27 @@ startNewGame();
 document.querySelector('.btn-roll').addEventListener('click', function(){
 	
 	if(gamePlaying){
-//	var dice = Math.floor(Math.random() * 6) + 1;
-var dice = 6;
+	var dice = Math.floor(Math.random() * 6) + 1;
 	var diceDOM = document.querySelector('.dice');
 	diceDOM.style.display = 'block';
 	diceDOM.src = 'dice-' + dice + '.png';
 	console.log('Dice is: ' + dice);
 	if(dice !== 1){
-		console.log('Current roll: ' + dice);
 		console.log('Previous roll: ' + previousRoll)
+		console.log('************************');
 		if((dice == 6) && (previousRoll == 6)){
-			console.log('First else');
+			console.log('Rolled 6 twice, change player');
+			console.log('************************');
 			nextPlayer();
 		}else{
 			roundScore += dice;
 			document.querySelector('#current-' + activePlayer).textContent = roundScore;
 			previousRoll = dice;
-			console.log('Old roll: ' + previousRoll)
 		}
 
 	}else{
-		console.log('Second else');
+		console.log('Dice was 1, change player');
+		console.log('************************');
 		nextPlayer();
 	}
 	}
