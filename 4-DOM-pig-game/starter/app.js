@@ -44,6 +44,7 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
 		if(((dice || dice2) == 6) && ((previousDice || previousDice2) == 6)){
 			console.log('Rolled 6 twice, change player');
 			console.log('************************');
+			scores[activePlayer] = 0;
 			document.getElementById('score-' + activePlayer).textContent = '0';
 			console.log('Rolled 6 twice, score set to 0');
 			nextPlayer();
@@ -55,7 +56,9 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
 		}
 
 	}else{
-		console.log('One dice was 1, change player');
+		scores[activePlayer] = 0;
+		document.getElementById('score-' + activePlayer).textContent = '0';
+		console.log('One dice was 1, score set to 0 and give turn to another player.');
 		console.log('************************');
 		nextPlayer();
 	}
