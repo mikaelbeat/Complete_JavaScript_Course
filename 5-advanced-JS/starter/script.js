@@ -1,4 +1,39 @@
 
+// Functions returning functions
+
+function interviewQuestion(job){
+    if (job === 'Designer'){
+        return function(name){
+            console.log(name + ', can you please explaon what UX design is?');
+        }
+    } else if (job === 'Teacher'){
+        return function(name){
+            console.log('What subject do you teach, ' + name + '?');
+        }
+    } else {
+        return function(name){
+            console.log('Hello ' + name + ', what do you do?');
+        }
+    }
+}
+
+
+var teacherQuestion = interviewQuestion('Teacher');
+var designerQuestion = interviewQuestion('Designer');
+var otherQuestion = interviewQuestion();
+
+teacherQuestion('John');
+designerQuestion('Paul');
+otherQuestion('Megan');
+
+interviewQuestion('Teacher')('Jane');
+interviewQuestion('Designer')('Julia');
+interviewQuestion('')('Logan');
+
+
+
+/*
+
 var years = [1990, 1965, 1937, 2005, 1998];
 
 function arrayCalc(arr, fn){
@@ -35,9 +70,6 @@ console.log(ages);
 console.log(fullAges);
 console.log(rates);
 
-// CHECK THIS AGAIN THROUGHT!!!
-
-/*
 
 // Primitives vs Objects
 
