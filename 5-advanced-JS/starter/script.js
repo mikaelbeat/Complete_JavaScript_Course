@@ -31,7 +31,6 @@ interviewQuestion('Designer')('Julia');
 interviewQuestion('')('Logan');
 
 
-
 /*
 
 var years = [1990, 1965, 1937, 2005, 1998];
