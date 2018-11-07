@@ -1,3 +1,63 @@
+var questionBank = [];
+
+var question = function(tittle, answer1, answer2, correctAnswer){
+    this.tittle = tittle;
+    this.answer1 = answer1;
+    this.answer2 = answer2;
+    this.correctAnswer = correctAnswer;
+}
+
+var question1 = new question('Is coding fun?', 'Yes', 'No', 'Yes');
+var question2 = new question('Which is best coding lanquage?', 'C++', 'JavaScript', 'JavaScript');
+var question3 = new question('Is Atom good ide to do Robot Framework coding?', 'Yes', 'No', 'Yes');
+
+questionBank.push(question1);
+// console.log(questionBank[0]);
+console.log(questionBank[0][1]);
+
+
+/*
+
+// Function constructor
+
+var John = {
+    name: 'John',
+    yearOfBirth: 1990,
+    job: 'Teacher'
+};
+
+var Person = function(name, yearOfBirth, job){
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
+    }
+
+Person.prototype.calculateAge = function(){
+    console.log(2016 - this.yearOfBirth);
+};
+
+Person.prototype.lastName = 'Smith';
+
+var john = new Person('John', 1990, 'Teacher');
+
+john.calculateAge();
+
+var jane = new Person('Jane', 1969, 'Designer');
+
+var mark = new Person('Mark', 1948, 'Retired');
+
+jane.calculateAge();
+
+mark.calculateAge();
+
+console.log(john.lastName);
+console.log(jane.lastName);
+console.log(mark.lastName);
+
+
+
+
+/*
 
 // Bind, call and apply
 
@@ -33,7 +93,7 @@ johnFriedly('Night');
 var emilyFormal = john.presentation.bind(emily, 'Formal');
 emilyFormal('Afternoon');
 
-/*
+
 
 // Closures
 
