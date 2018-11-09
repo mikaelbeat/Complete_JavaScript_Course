@@ -1,19 +1,18 @@
 var questionBank = [];
 
-var question = function(tittle, answer1, answer2, correctAnswer){
-    this.tittle = tittle;
+var question = function(answer1, answer2, correctAnswer, tittle){
     this.answer1 = answer1;
     this.answer2 = answer2;
     this.correctAnswer = correctAnswer;
+    this.tittle = tittle;
 }
 
-var question1 = new question('Is coding fun?', 'Yes', 'No', 'Yes');
-var question2 = new question('Which is best coding lanquage?', 'C++', 'JavaScript', 'JavaScript');
-var question3 = new question('Is Atom good ide to do Robot Framework coding?', 'Yes', 'No', 'Yes');
+var question1 = new question('Yes', 'No', 'Yes', 'Is coding fun?');
+
 
 questionBank.push(question1);
 // console.log(questionBank[0]);
-console.log(questionBank[0][1]);
+console.log(questionBank[0]);
 
 
 /*
