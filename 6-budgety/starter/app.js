@@ -1,16 +1,6 @@
 var budgetController = (function(){
 
-var x = 23;
 
-var add = function(a){
-    return x + a;
-}
-
-return{
-    publicTest: function(b){
-        console.log(add(b));
-    }
-}
 
 })();
 
@@ -25,7 +15,16 @@ var UIController = (function(){
 
 var controller = (function(budgetCtrl, UICtrl){
 
+    var ctrlAddItem = function() {
 
-// 12,36
+    }
 
-})();
+    document.querySelector('.add__btn').addEventListener('click', ctrlAddItem);
+
+    document.addEventListener('keypress', function(event){
+        if (event.keyCode === 13){
+            ctrlAddItem();
+        }
+    });
+
+})(budgetController, UIController);
