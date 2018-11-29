@@ -59,8 +59,21 @@ var budgetController = (function(){
                 // Calculate the budget: income - expenses
                 data.budget = data.totals.inc - data.totals.exp;
                 // Calculate the percentage of income that we spent
-                data.percentage = Math.round((data.totals.exp / data.totals.inc) * 100);
+                if (data.totals.inc > 0){
+                    data.percentage = Math.round((data.totals.exp / data.totals.inc) * 100);
+                } else {
+                    data.percentage = -1;
+                }
+                
             },
+                getBudget: function(){
+                    return {
+                        budget: data.budget,
+                        totalInc: data.totals.inc,
+                        totalExp: data.totals.exp,
+                        percentage: data.percentage
+                    };
+                },
         }
 })();
 
@@ -71,7 +84,11 @@ var UIController = (function(){
         inputValue: '.add__value',
         inputButton: '.add__btn',
         incomeContainer: '.income__list',
-        expensesContainer: '.expenses__list'
+        expensesContainer: '.expenses__list',
+        budgetLabel: '.budget__value',
+        incomeLabel: '.budget__income--value',
+        expenceLabel: '.budget__expences--value',
+        percentageLabel: '.budget__expenses--percentage'
     };
     return {
         getInput: function(){
@@ -107,6 +124,16 @@ var UIController = (function(){
                 });
                 fieldsArray[0].focus();
             },
+            displayBudget: function(obj){
+                document.querySelector(DOMstrings.budgetLabel).textContent = obj.budget;
+                document.querySelector(DOMstrings.incomeLabel).textContent = obj.totalInc;
+                document.querySelector(DOMstrings.expenceLabel).textContent = obj.totalExp;
+                if (obj.percentage > 0) {
+                    document.querySelector(DOMstrings.budgetLabel).textContent = obj.percentage + '%';
+                } else {
+                    document.querySelector(DOMstrings.budgetLabel).textContent = obj.percentage + '---';
+                }
+            },
             getDOMstring: function(){
                 return DOMstrings;
             }
@@ -126,11 +153,11 @@ var controller = (function(budgetCtrl, UICtrl){
 
     var updateBudget = function(){
         // 1. Calculate the budget
-            budgetCtrl.calculateBudget();
+        budgetCtrl.calculateBudget();
         // 2. Return the budget
-
+        var budget = budgetCtrl.getBudget();
         // 3. Display the budget on the UI
-
+        UIController.displayBudget(budget);
     };
 
     var ctrlAddItem = function() {
@@ -151,6 +178,12 @@ var controller = (function(budgetCtrl, UICtrl){
     return {
         init: function(){
             console.log('Application has started.');
+            UIController.displayBudget({
+                budget: 0,
+                totalInc: 0,
+                totalExp: 0,
+                percentage: -1
+            });
             setupEventListers();
         }
     };
@@ -158,6 +191,3 @@ var controller = (function(budgetCtrl, UICtrl){
 })(budgetController, UIController);
 
 controller.init();
-
-
-// 86, 13:37
