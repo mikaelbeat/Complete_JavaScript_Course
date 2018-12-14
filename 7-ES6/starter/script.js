@@ -75,7 +75,7 @@ console.log(n.endsWith('th'));
 console.log(n.includes('oh'));
 console.log(`${firstName} `.repeat(5));
 
-*/
+
 
 // Lecture: Arrow functions
 
@@ -102,3 +102,111 @@ ages6 = years.map((element, index) => {
 })
 
 console.log(ages6);
+
+
+
+// Lecture: Arrow functions 2
+
+// ES5
+var box5 = {
+    color: 'green',
+    position: 1,
+    clickMe: function(){
+        var self = this;
+        document.querySelector('.green').addEventListener('click',
+            function(){
+                var str = 'This is box number ' + self.position + ' and it is ' + self.color;
+                alert(str);
+            });
+    }
+}
+box5.clickMe();
+
+
+// ES6
+const box6 = {
+    color: 'green',
+    position: 1,
+    clickMe: function(){
+        document.querySelector('.green').addEventListener('click',
+            () => {
+                var str = 'This is box number ' + this.position + ' and it is ' + this.color;
+                alert(str);
+            });
+    }
+}
+box6.clickMe();
+
+
+
+function Person(name){
+    this.name = name;
+}
+
+// ES5
+Person.prototype.myFriends5 =
+    function(friends){
+        var arr = friends.map(function(element){
+            return this.name + ' is friends with ' + element;
+        }.bind(this));
+        console.log(arr);
+    }
+    var friends = ['Bob', 'Jane', 'Mark'];
+    new Person('John').myFriends5(friends);
+
+console.log('********************');
+
+// ES6
+Person.prototype.myFriends6 =
+    function(friends){
+        var arr = friends.map(element =>
+            `${this.name} is friends with ${element}`);
+        console.log(arr);
+    }
+    new Person('Mike').myFriends6(friends);
+
+*/
+
+// Lecture: Destructuring
+
+
+// ES5
+var john = ['John', 26];
+var name5 = john[0];
+var age5 = john[1];
+
+// ES6
+const [name6, age6] = ['John', 26];
+console.log(name6);
+console.log(age6);
+
+const obj = {
+    firstName: 'John',
+    lastName: 'Smith'
+};
+
+const {firstName, lastName} = obj;
+console.log(firstName);
+console.log(lastName);
+
+const {firstName: a, lastName: b} = obj;
+console.log(a);
+console.log(b);
+
+console.log('********************');
+
+function calcAgeRetirement(year){
+    const age = new Date().getFullYear() - year;
+    return [age, 65 - age];
+}
+
+const [age, retirement] = calcAgeRetirement(1981);
+console.log(age);
+console.log(retirement);
+
+
+
+
+
+
+
