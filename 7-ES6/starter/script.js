@@ -7,12 +7,12 @@ var age5 = 23;
 name5 = 'Jane Miller';
 console.log(name5);
 
+
 // ES6
 const name6 = 'Jane Smith';
 let age6 = 23;
 name6 = 'Jane Smith';
 console.log(name6);
-
 
 
 // ES5
@@ -27,6 +27,7 @@ function driversLicence(passedTest) {
 }
 driversLicence(true);
 
+
 // ES6
 function driversLicence6(passedTest) {
 
@@ -40,7 +41,6 @@ function driversLicence6(passedTest) {
 }
 
 
-
 // Lecture: Blocks and IIFEs
 
 // const and let defined variables are visible only in the block where they are defined.
@@ -50,7 +50,6 @@ function driversLicence6(passedTest) {
 }
 
 console.log(a + ' ' + b);
-
 
 
 // Lecture: Strings
@@ -66,6 +65,7 @@ function calcAge(year){
 // ES5
 console.log('Name is ' + firstName + ', and last name is ' + lastName + ' is ' + calcAge(yearOfBirth) + ' years old.');
 
+
 // ES6
 console.log(`Name is ${firstName}, and last name is ${lastName} is ${calcAge(yearOfBirth)} years old.`);
 
@@ -74,7 +74,6 @@ console.log(n.startsWith('J'));
 console.log(n.endsWith('th'));
 console.log(n.includes('oh'));
 console.log(`${firstName} `.repeat(5));
-
 
 
 // Lecture: Arrow functions
@@ -102,7 +101,6 @@ ages6 = years.map((element, index) => {
 })
 
 console.log(ages6);
-
 
 
 // Lecture: Arrow functions 2
@@ -137,8 +135,6 @@ const box6 = {
 }
 box6.clickMe();
 
-
-
 function Person(name){
     this.name = name;
 }
@@ -165,7 +161,6 @@ Person.prototype.myFriends6 =
     }
     new Person('Mike').myFriends6(friends);
 
-*/
 
 // Lecture: Destructuring
 
@@ -174,6 +169,7 @@ Person.prototype.myFriends6 =
 var john = ['John', 26];
 var name5 = john[0];
 var age5 = john[1];
+
 
 // ES6
 const [name6, age6] = ['John', 26];
@@ -206,7 +202,55 @@ console.log(retirement);
 
 
 
+// Lecture: Arrays
+
+const boxes = document.querySelectorAll('.box');
+
+// ES5
+var boxesArr5 = Array.prototype.slice.call(boxes);
+boxesArr5.forEach(function(cur){
+    cur.style.backgroundColor = 'dodgerblue';
+});
+
+
+// ES6
+const boxesArr6 = Array.from(boxes);
+Array.from(boxes).forEach(cur =>
+    cur.style.backgroundColor = 'dodgerblue');
 
 
 
+// ES5
+for(var i = 0; i < boxesArr5.length; i++){
+    if(boxesArr5[i].className === 'box blue'){
+        continue;
+    }
 
+    boxesArr5[i].textContent = 'I changed to blue';
+}
+
+*/
+
+// ES6
+for(const cur of boxesArr6){
+    if (cur.className.includes('blue')){
+        continue;
+    }
+    cur.textContent = 'I changed to blue!';
+}
+
+// ES5
+var ages = [12, 17, 8, 21, 14, 11];
+
+var full = ages.map(function(cur){
+    return cur >= 18;
+});
+console.log(full);
+console.log(full.indexOf(true));
+console.log(ages[full.indexOf(true)]);
+
+console.log('*********************');
+
+// ES6
+console.log(ages.findIndex(cur => cur >= 18));
+console.log(ages.find(cur => cur >= 18));
