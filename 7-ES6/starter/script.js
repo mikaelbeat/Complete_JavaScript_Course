@@ -229,7 +229,7 @@ for(var i = 0; i < boxesArr5.length; i++){
     boxesArr5[i].textContent = 'I changed to blue';
 }
 
-*/
+
 
 // ES6
 for(const cur of boxesArr6){
@@ -254,3 +254,75 @@ console.log('*********************');
 // ES6
 console.log(ages.findIndex(cur => cur >= 18));
 console.log(ages.find(cur => cur >= 18));
+
+
+// Lecture: Spread Operator
+
+function addFourAges (a, b, c, d){
+    return a + b + c +d;
+}
+
+var sum1 = addFourAges(18, 30, 12, 21);
+console.log(sum1);
+
+// ES5
+var ages = [18, 30, 12, 21];
+var sum2 = addFourAges.apply(null, ages);
+console.log(sum2);
+
+// ES6
+const sum3 = addFourAges(...ages);
+console.log(sum3);
+
+const familySmith = ['John', 'Jane', 'Mark'];
+const fammilyMiller = ['Mary', 'Bob', 'Ann'];
+const bigFamily = [...familySmith, ...fammilyMiller];
+console.log(bigFamily);
+
+const h = document.querySelector('h1');
+const boxes = document.querySelectorAll('.box');
+const all = [h, ...boxes];
+
+Array.from(all).forEach(cur => cur.style.color = 'purple');
+
+
+
+// Lecture: Rest parameters
+
+// ES5
+function isFullAge5(){
+    // console.log(arguments);
+    var argsArr = Array.prototype.slice.call(arguments);
+    argsArr.forEach(function(cur){
+        console.log((2016 - cur) >= 18);
+    })
+}
+//isFullAge5(1990, 1999, 1965);
+
+
+// ES6
+function isFullAge6(...years){
+    years.forEach(cur => console.log((2016 - cur) >= 18));
+}
+
+isFullAge6(1990, 1999, 1965);
+
+*/
+
+// ES5
+function isFullAge5(limit){
+    // console.log(arguments);
+    var argsArr = Array.prototype.slice.call(arguments, 1);
+    argsArr.forEach(function(cur){
+        console.log((2016 - cur) >= limit);
+    })
+}
+//isFullAge5(1990, 1999, 1965);
+
+
+// ES6
+function isFullAge6(limit, ...years){
+    years.forEach(cur => console.log((2016 - cur) >= 18));
+}
+
+isFullAge6(16, 1990, 1999, 1965);
