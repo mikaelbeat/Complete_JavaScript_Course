@@ -307,7 +307,6 @@ function isFullAge6(...years){
 
 isFullAge6(1990, 1999, 1965);
 
-*/
 
 // ES5
 function isFullAge5(limit){
@@ -326,3 +325,70 @@ function isFullAge6(limit, ...years){
 }
 
 isFullAge6(16, 1990, 1999, 1965);
+
+
+// Lecture: Default parameters
+
+// ES6
+
+function SmithPerson5(firstName, yearOfBirth, lastName, nationality){
+
+    lastName === undefined ? lastName = 'Smith' : lastName = lastName;
+    nationality === undefined ? nationality ='American' : nationality = nationality;
+
+    this.firstName = firstName;
+    this.yearOfBirth = yearOfBirth;
+    this.lastName = lastName;
+    this.nationality = nationality;
+}
+
+var john = new SmithPerson5('John', 1990);
+var emily = new SmithPerson5('Emily', 1983, 'Diaz', 'Spanish')
+
+// ES6
+
+function SmithPerson6(firstName, yearOfBirth, lastName = 'Smith', nationality = 'American'){
+    this.firstName = firstName;
+    this.yearOfBirth = yearOfBirth;
+    this.lastName = lastName;
+    this.nationality = nationality;
+}
+
+*/
+
+// Lecture: Maps
+
+const question = new Map();
+question.set('guestion', 'What is the official name of the latest major Javascript verion?');
+question.set(1, 'ES5');
+question.set(2, 'ES6');
+question.set(3, 'ES2015');
+question.set(4, 'ES7');
+question.set('correct', 3);
+question.set(true, 'Correct answer!');
+question.set(false, 'Wrong answer, try again!');
+
+console.log(question.get('guestion'));
+console.log(question.size);
+
+if (question.has(4)){
+    // uestion.delete(4);
+    console.log('Question 4 deleted.')
+} else {
+    console.log('There is no question 4.')
+}
+
+
+question.forEach((value, key) => 
+    console.log(`This is ${key}, and it's set to ${value}`));
+
+console.log('*********************');
+
+for (let [key, value] of question.entries()){
+    if (typeof(key) === 'number'){
+        console.log(`Answer ${key}: ${value}`);
+    }
+}
+
+const ans = parseInt(prompt('Write the correct answer'));
+console.log(question.get(ans === question.get('correct')));
