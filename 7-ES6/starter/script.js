@@ -354,7 +354,7 @@ function SmithPerson6(firstName, yearOfBirth, lastName = 'Smith', nationality = 
     this.nationality = nationality;
 }
 
-*/
+
 
 // Lecture: Maps
 
@@ -392,3 +392,46 @@ for (let [key, value] of question.entries()){
 
 const ans = parseInt(prompt('Write the correct answer'));
 console.log(question.get(ans === question.get('correct')));
+
+
+*/
+
+// Lecture: Classes
+
+// ES5
+var person5 = function(name, yearOfBirth, job){
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
+}
+
+person5.prototype.calculateAge = function(){
+    var age = new Date().getFullYear -
+    this.yearOfBirth;
+    console.log(age);
+}
+
+var john5 = new person5('John', 1990, 'Police');
+
+// ES6
+class person6 {
+    constructor (name, yearOfBirth, job){
+        this.name = name;
+        this.yearOfBirth = yearOfBirth;
+        this.job = job;
+    }
+
+    calculateAge(){
+        var age = new Date().getFullYear -
+        this.yearOfBirth;
+        console.log(age);
+    }
+
+    static greetings(){
+        console.log('Greetings!');
+    }
+}
+
+const john6 = new person6('John', 1990, 'Teacher');
+person6.greetings();
+
